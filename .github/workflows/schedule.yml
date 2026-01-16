@@ -2,7 +2,7 @@ name: Calendar Scanner
 
 on:
   schedule:
-    - cron: '*/10 9 * * *'  # Runs every 10 minutes after midnight in japan
+    - cron: '0,5,10,15,25 9 * * *'  # Run a few times right after midnight in japan (+9 from UTC 0 )
   workflow_dispatch:        # Allows you to click "Run" manually to test it
 
 jobs:
