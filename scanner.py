@@ -20,7 +20,7 @@ SEARCH_RESULTS_URL = "https://www.keishicho-gto.metro.tokyo.lg.jp/keishicho-u/re
 def run_booking_flow():
     with sync_playwright() as p:
         # 実際の動作を見るために headless=False に設定
-        browser = p.chromium.launch(headless=False, slow_mo=500)
+        browser = p.chromium.launch(headless=True, slow_mo=500)
         context = browser.new_context()
         page = context.new_page()
 
@@ -31,7 +31,7 @@ def run_booking_flow():
         # This is for OUTSIDE the 29 countries
         target_text = "【免許手続】29の国・地域以外で取得した運転免許証を日本の免許に切り替える方(Applicants for license conversion)"
         # This is for INSIDE the 29 countries
-        target_text = "【免許手続】29の国・地域で取得した運転免許証を日本の免許に切り替える方(Applicants for license conversion)"
+        # target_text = "【免許手続】29の国・地域で取得した運転免許証を日本の免許に切り替える方(Applicants for license conversion)"
         page.get_by_text(target_text).click()
 
         print("--- ステップ3: 空き枠（緑の丸）を検索 ---")
