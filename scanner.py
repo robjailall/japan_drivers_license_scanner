@@ -32,6 +32,8 @@ def run_booking_flow():
         target_text = "【免許手続】29の国・地域以外で取得した運転免許証を日本の免許に切り替える方(Applicants for license conversion)"
         # This is for INSIDE the 29 countries
         # target_text = "【免許手続】29の国・地域で取得した運転免許証を日本の免許に切り替える方(Applicants for license conversion)"
+
+        print("Looking on the page for: {}".format(target_text))
         page.get_by_text(target_text).click()
 
         print("--- ステップ3: 空き枠（緑の丸）を検索 ---")
