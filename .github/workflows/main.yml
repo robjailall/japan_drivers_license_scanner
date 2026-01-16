@@ -1,0 +1,28 @@
+name: Calendar Scanner
+
+on:
+  schedule:
+    - cron: '*/10 9 * * *'  # Runs every 10 minutes after midnight in japan
+  workflow_dispatch:        # Allows you to click "Run" manually to test it
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright requests slack_sdk
+          playwright install chromium
+
+      - name: Run scanner
+        env:
+          SLACK_OAUTH_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+        run: python scanner.py
