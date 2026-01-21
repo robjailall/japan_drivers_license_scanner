@@ -20,7 +20,7 @@ SEARCH_RESULTS_URL = "https://www.keishicho-gto.metro.tokyo.lg.jp/keishicho-u/re
 def run_booking_flow():
     with sync_playwright() as p:
         # 実際の動作を見るために headless=False に設定
-        browser = p.chromium.launch(headless=True, slow_mo=500)
+        browser = p.chromium.launch(slow_mo=500)
         context = browser.new_context()
         page = context.new_page()
 
