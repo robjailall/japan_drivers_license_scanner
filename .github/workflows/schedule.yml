@@ -27,11 +27,11 @@ jobs:
           SLACK_OAUTH_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
         run: python scanner.py
           
-       # Upload the screenshot as an artifact
-       - name: Upload screenshot artifact
-         uses: actions/upload-artifact@v4
-         with:
-           name: workflow-screenshots
-           path: ./screenshot.png
-           # Optional: configure retention period (e.g., 2 days)
-           retention-days: 1
+      # Upload the screenshot as an artifact
+      - name: Upload screenshot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-screenshots
+          path: ./screenshot.png
+          # Optional: configure retention period (e.g., 2 days)
+          retention-days: 1
