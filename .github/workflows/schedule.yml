@@ -30,6 +30,7 @@ jobs:
       # Upload the screenshot as an artifact
       - name: Upload screenshot artifact
         uses: actions/upload-artifact@v4
+        if: failure()
         with:
           name: workflow-screenshots
           path: ./screenshot.png
